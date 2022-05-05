@@ -8,15 +8,16 @@ export default function Header({
   return (
     <header>
         <div className="header-left">
-          <div className="mobile-menu-container">
-            <input id="menu-toggle" type="checkbox"
+          <div className="hamburger-container"
+               onClick={toggleMobileMenu}>
+            <input id="hamburger-toggle" type="checkbox"
             checked={showMobileMenu} 
             onChange={toggleMobileMenu}/>
             <label
               className="menu-button-container"
-              htmlFor="menu-toggle"
+              htmlFor="hamburger-toggle"
               >
-                <div className="menu-button"></div>
+                <div className="hamburger-line"></div>
             </label>
           </div>
           <img className="logo" src="../images/logo.svg" />

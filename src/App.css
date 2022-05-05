@@ -29,11 +29,11 @@ header {
 }
 
 .mobile-menu-flex {
-  position: fixed;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 6;
+  z-index: 4;
   width: 100%;
   height: 100vh;
 }
@@ -47,6 +47,7 @@ header {
   padding-top: 5.5rem;
   padding-left: 2rem;
   list-style-type: none;
+  overflow-y: scroll;
 }
 
 .mobile-menu-item {
@@ -99,42 +100,35 @@ header {
   gap: 1.5rem;
 }
 
-.mobile-menu-container {
+.hamburger-container {
   cursor: pointer;
-  top: 0;
+  z-index: 5;
   height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 7;
 }
 
-#menu-toggle {
+#hamburger-toggle {
   display: none;
 }
 
-#menu-toggle:checked +
+#hamburger-toggle:checked +
 .menu-button-container {
+  background-color: white;
+  width: 70vw;
   position: absolute;
-  left: 2rem;
-  top: 1.5rem;
+  top: 0;
+  left: 0;
+  padding-top: 1.5rem;
+  padding-left: 2rem;
+  height: 75px;
 }
 
 .menu-button-container {
-  height: 30px;
-  width: 25px;
   cursor: pointer;
 }
 
-.menu-button,
-.menu-button::before,
-.menu-button::after {
+.hamburger-line,
+.hamburger-line::before,
+.hamburger-line::after {
   display: block;
   background-color: #68707d;
   position: absolute;
@@ -145,39 +139,39 @@ header {
   cursor: pointer;
 }
 
-.menu-button {
+.hamburger-line {
   position: relative;
   top: 13px;
 }
 
-.menu-button::before {
+.hamburger-line::before {
   content: '';
   margin-top: -6px;
 }
 
-.menu-button::after {
+.hamburger-line::after {
   content: '';
   margin-top: 6px;
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button::before {
+#hamburger-toggle:checked + .menu-button-container .hamburger-line::before {
   margin-top: 0px;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button {
+#hamburger-toggle:checked + .menu-button-container .hamburger-line {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button::after {
+#hamburger-toggle:checked + .menu-button-container .hamburger-line::after {
   margin-top: 0px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
-#menu-toggle:checked + .App {
+#hamburger-toggle:checked + .App {
   position: fixed;
 }
 
@@ -206,7 +200,7 @@ header {
   font-size: .6rem;
   padding: .5px 5px 1px;
   pointer-events: none;
-  z-index: 4;
+  z-index: 2;
 }
 
 .avatar {
@@ -240,7 +234,7 @@ header {
 }
 
 .arrow-container {
-  z-index: 5;
+  z-index: 3;
   background-color: white;
   width: 35px;
   height: 35px;
@@ -411,6 +405,7 @@ header {
 }
 
 .cart {
+  z-index: 6;
   background-color: white;
   position: absolute;
   left: 0;
@@ -508,6 +503,10 @@ header {
   opacity: .5;
 }
 
+.modal {
+  display: none;
+}
+
 .photo-grid {
   display: none;
 }
@@ -562,7 +561,7 @@ header {
   .description {
     max-width: 450px;
   }
-  .mobile-menu-container {
+  .hamburger-container {
     display: none;
   }
   .image-container,
@@ -676,7 +675,7 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    z-index: 10;
+    z-index: 6;
     position: fixed;
     margin: 0;
     padding: 0;
@@ -702,6 +701,7 @@ header {
   .modal .image-container,
   .modal .photo-grid {
     width: 40vw;
+    max-width: 500px;
   }
   .arrow-container {
     display: none;
