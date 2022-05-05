@@ -56,9 +56,9 @@ header {
 }
 
 .mobile-menu-flex {
-  position: fixed;
+  position: absolute;
   display: flex;
-  z-index: 6;
+  z-index: 4;
   width: 100%;
   height: 100vh;
 }
@@ -70,6 +70,7 @@ header {
   padding-top: 5.5rem;
   padding-left: 2rem;
   list-style-type: none;
+  overflow-y: scroll;
 }
 
 .mobile-menu-item {
@@ -111,40 +112,38 @@ header {
 }
 
 // hamburger outermost container
-.mobile-menu-container {
+.hamburger-container {
   cursor: pointer;
-  top: 0;
+  z-index: 5;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 7;
 }
 
 // <input type="checkbox">
-#menu-toggle {
+#hamburger-toggle {
   display: none;
 }
 
-
 // "X" to close mobile menu
-#menu-toggle:checked +
+#hamburger-toggle:checked +
 .menu-button-container {
+  background-color: white;
+  width: 70vw;
   position: absolute;
-  left: 2rem;
-  top: 1.5rem;
+  top: 0;
+  left: 0;
+  padding-top: 1.5rem;
+  padding-left: 2rem;
+  height: 75px;
 }
 
-// <label>
+// hamburger / X <label>
 .menu-button-container {
-  height: 30px;
-  width: 25px;
   cursor: pointer;
 }
 
-.menu-button,
-.menu-button::before,
-.menu-button::after {
+.hamburger-line,
+.hamburger-line::before,
+.hamburger-line::after {
   display: block;
   background-color: $dark-grayish-blue;
   position: absolute;
@@ -152,39 +151,38 @@ header {
   width: 17.5px;
   transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
-  
 }
 
-.menu-button {
+.hamburger-line {
   position: relative;
   top: 13px; // height + margin of line
 }
 
-.menu-button::before {
+.hamburger-line::before {
   content: '';
   margin-top: -6px;
 }
 
-.menu-button::after {
+.hamburger-line::after {
   content: '';
   margin-top: 6px;
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button::before {
+#hamburger-toggle:checked + .menu-button-container .hamburger-line::before {
   margin-top: 0px;
   transform: rotate(90deg);
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button {
+#hamburger-toggle:checked + .menu-button-container .hamburger-line {
   transform: rotate(135deg);
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button::after {
+#hamburger-toggle:checked + .menu-button-container .hamburger-line::after {
   margin-top: 0px;
   transform: rotate(-90deg);
 }
 
-#menu-toggle:checked + .App {
+#hamburger-toggle:checked + .App {
   position: fixed;
 }
 
@@ -215,7 +213,7 @@ header {
   font-size: .6rem;
   padding: .5px 5px 1px;
   pointer-events: none;
-  z-index: 4;
+  z-index: 2;
 }
 
 .avatar {
@@ -242,7 +240,7 @@ header {
 }
 
 .arrow-container {
-  z-index: 5;
+  z-index: 3;
   background-color: white;
   width: 35px;
   height: 35px;
@@ -359,6 +357,7 @@ header {
 }
 
 .cart {
+  z-index: 6;
   background-color: white;
   position: absolute;
   left: 0;
@@ -481,7 +480,7 @@ header {
     max-width: 450px;
   }
 
-  .mobile-menu-container {
+  .hamburger-container {
     display: none;
   }
 
@@ -581,7 +580,7 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    z-index: 10;
+    z-index: 6;
     position: fixed;
     margin: 0;
     padding: 0;
@@ -606,6 +605,7 @@ header {
   .modal .image-container,
   .modal .photo-grid {
     width: 40vw;
+    max-width: 500px;
   }
 
   .arrow-container {
