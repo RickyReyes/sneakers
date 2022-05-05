@@ -14,7 +14,8 @@ export default function Description({sneaker}) {
             {sneaker.desc}
         </p>
         <div className="price-section-flex">
-            <span className="price-section-one">              <h1 className="price">${sneaker.originalPrice * (sneaker.discount / 100)}.00</h1>
+            <span className="price-section-one">   
+                <h1 className="price">${sneaker.originalPrice * (sneaker.discount / 100)}.00</h1>
                 <span className="discount">{sneaker.discount}%</span>
             </span>
             <span className="before-discount price-section-two">${sneaker.originalPrice}.00</span>

@@ -238,7 +238,7 @@ header {
   justify-content: space-between;
   padding: 0 1rem;
   margin: 0 auto;
-  pointer-events: none; // don't allow toggleModal on mobile
+  pointer-events: none; // don't allow modal on mobile
 }
 
 .arrow-container {
@@ -251,6 +251,7 @@ header {
   border-radius: 50%;
   cursor: pointer;
   position: relative;
+  pointer-events: auto;
 }
 
 .toggle {

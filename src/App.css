@@ -253,6 +253,7 @@ header {
   border-radius: 50%;
   cursor: pointer;
   position: relative;
+  pointer-events: auto;
 }
 
 .toggle {
